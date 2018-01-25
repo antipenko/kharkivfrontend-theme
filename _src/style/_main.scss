@@ -1,0 +1,15 @@
+svg{
+	display: inline-block;
+	vertical-align: middle;
+	@include ba-transition('fill, stroke');
+}
+a,
+[type="submit"],
+[type="button"],
+button{
+	@include ba-transition;
+}
+
+.ba-main-content {
+	margin-top: 30px;
+}
