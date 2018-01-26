@@ -53,7 +53,7 @@ var path = {
 
 // Enter URL of your local server here
 // Example: 'http://localwebsite.dev'
-var URL = 'http://alexcss.com';
+var URL = 'http://localhost:8888/wordpress/';
 
 var ftpConfig =  {
 	type:		'sftp',
@@ -78,7 +78,7 @@ var config = {
 	tunnel: false,
 	host: 'localhost',
 	port: 9000,
-	logPrefix: "Beetroot_Academy",
+	logPrefix: "Kharkiv_Frontend",
 	proxy: URL,
 	reloadDelay: 2000
 };

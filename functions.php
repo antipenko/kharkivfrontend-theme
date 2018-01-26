@@ -77,6 +77,22 @@ if( function_exists('acf_update_setting') ) {
 	add_action('acf/init', 'be_acf_init');
 }
 
+/******************** MY HOOKS ****************************/
+
+// add class to menu item start
+function wph_css_class_to_menu($classes, $item){
+    $classes[] = "menu-categories header_menu-list_item";
+    return $classes;
+}
+add_filter('nav_menu_css_class' , 'wph_css_class_to_menu' , 10 , 2);
+// add class to menu item end
+
+// add class to menu link start
+function add_menuclass($ulclass) {
+    return preg_replace('/<a /', '<a class="scroll_spy_link scroll-link header_menu-list_item-link"', $ulclass);
+}
+add_filter('wp_nav_menu','add_menuclass');
+// add class to menu link end
 
 /*********************** PUT YOU FUNCTIONS BELOW ********************************/
 
