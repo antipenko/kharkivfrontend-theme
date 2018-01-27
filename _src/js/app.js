@@ -34,7 +34,7 @@
 // require slick.min.js
 //
 // Google Map ACF functions
-// require components/map.js
+ require components/map.js
 
 ;
 (function($) {

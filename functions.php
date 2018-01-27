@@ -72,7 +72,7 @@ if( function_exists('acf_add_options_page') ) {
 // Register your Google Map API key - replace 'xxx' with you key
 if( function_exists('acf_update_setting') ) {
 	function be_acf_init() {
-		acf_update_setting('google_api_key', 'xxx');
+		acf_update_setting('google_api_key', 'AIzaSyCTgzrmo9NC5L1c6M-krZlY-YuK-ECz7VU');
 	}
 	add_action('acf/init', 'be_acf_init');
 }

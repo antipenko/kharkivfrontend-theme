@@ -123,6 +123,23 @@ get_header(); ?>
                 </table>
             </section>
 
+            <section class="map scroll-spy" id="map">
+                <h1 class="section_header fadeInUp">location</h1>
+                <div class="fadeInUp" id="map-container">
+                    <?php if( $location = get_field('map')):?>
+                        <div class="acf-map">
+                            <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+                        </div>
+                    <?php endif; ?>
+                </div>
+
+                <?php if( $location = get_field('location')):?>
+                    <div class="acf-map">
+                        <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+                    </div>
+                <?php endif; ?>
+            </section>
+
         <?php endwhile; ?><!-- END of Post -->
 
     <?php endif;
