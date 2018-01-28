@@ -28,12 +28,12 @@ get_header(); ?>
             <!--            --><?php //the_content(); ?>
 
             <section class="intro scroll-spy" id="intro">
-                <img class="intro-logo  fadeInUp" alt="Kharkiv front-eng logo"
+                <img class="intro-logo wow fadeInUp" alt="Kharkiv front-eng logo"
                      src="/wordpress/wp-content/uploads/2018/01/logo.png"/>
                 <h1 class=" fadeInUp intro-event_name" data-wow-delay=".2s">
                     <?php the_field('number'); ?>
                 </h1>
-                <div class="intro-info fadeInUp">
+                <div class="intro-info wow fadeInUp">
                     <p class="intro-time" data-wow-delay=".3s">
                         <img class="intro-time-icon" alt="time:"
                              src=" <?php bloginfo('template_url'); ?>/assets/img/clock-ico.png"/>
@@ -53,7 +53,7 @@ get_header(); ?>
             </section>
 
             <section class="speakers scroll-spy" id="speakers">
-                <h1 class="section_header fadeInUp">speakers</h1>
+                <h1 class="section_header wow fadeInUp">speakers</h1>
                 <div class="speakers-list">
 
                     <?php if (have_rows('speaker')): ?>
@@ -65,7 +65,7 @@ get_header(); ?>
                             $lectureTitle = get_sub_field('lecture-title');
                             $lectureDesc = get_sub_field('lecture-desc');
                             // Use variables below ?>
-                            <div class="speakers-person fadeInUp" data-wow-duration="1s">
+                            <div class="speakers-person wow fadeInUp" data-wow-duration="1s">
                                 <div class="speakers-person-image-wrap">
                                     <img src="<?php echo $speakerPhoto; ?>" class='speakers-person-image'/>
                                 </div>
@@ -89,8 +89,8 @@ get_header(); ?>
             </section>
 
             <section class="agenda scroll-spy" id="agenda">
-                <h1 class="section_header  fadeInUp">agenda</h1>
-                <table class="agenda-table  fadeInUp">
+                <h1 class="section_header wow fadeInUp">agenda</h1>
+                <table class="agenda-table wow fadeInUp">
                     <thead class="agenda-table-head">
                     <tr>
                         <th>Time</th>
@@ -123,19 +123,44 @@ get_header(); ?>
                 </table>
             </section>
 
-            <section class="map scroll-spy" id="map">
-                <h1 class="section_header fadeInUp">location</h1>
-                <div class="fadeInUp" id="map-container">
-                    <?php if( $location = get_field('map')):?>
-                        <div class="acf-map">
-                            <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
-                        </div>
-                    <?php endif; ?>
-                </div>
+            <?php if (have_rows('sponsors')): ?>
+                <section class="sponsors scroll-spy" id="agenda">
+                    <h1 class="section_header wow fadeInUp">sponsors</h1>
+                    <div class="sponsors-list">
 
-                <?php if( $location = get_field('location')):?>
+                        <?php while (have_rows('sponsors')): the_row();
+                            // Declare variables below
+                            $sponsorLogo = get_sub_field('sponsor-logo');
+                            $sponsorUrl = get_sub_field('sponsor-link');
+                            $sponsorName = get_sub_field('sponsor-name');
+                            $sponsorDesc = get_sub_field('sponsor-desc');
+                            // Use variables below ?>
+                            <div class="sponsor wow fadeInUp" data-wow-duration="1s">
+                                <div class="sponsor-image-wrap">
+                                    <a href=" <?php echo $sponsorUrl; ?> ">
+                                        <img src="<?php echo $sponsorLogo; ?>" class='sponsor-image'/>
+                                    </a>
+                                </div>
+                                <!--<h2 class="sponsor-name">
+                                    <?php /*echo $sponsorName; */?>
+                                </h2>-->
+                                <p class="sponsor-info">
+                                    <?php echo $sponsorDesc; ?>
+                                </p>
+
+                            </div>
+                        <?php endwhile; ?>
+
+                    </div>
+                </section>
+            <?php endif; ?>
+
+            <section class="map scroll-spy" id="map">
+
+                <h1 class="section_header wow fadeInUp">location</h1>
+                <?php if ($location = get_field('location')): ?>
                     <div class="acf-map">
-                        <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+                        <?php echo get_field('location'); ?>
                     </div>
                 <?php endif; ?>
             </section>

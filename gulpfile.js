@@ -139,8 +139,11 @@ gulp.task('js:build', function () {
 				)
 			)
 		)
-		.pipe(
-			$if(isProduction, babel({"presets": ["es2015"]}))
+		.pipe(babel({
+			presets: ["es2015"]
+		}))
+		/*.pipe(
+			$if(!isProduction, babel({presets: ["es2015"]}))
 		)
 		.pipe(
 			$if(isProduction,
@@ -152,7 +155,7 @@ gulp.task('js:build', function () {
 					)
 				)
 			)
-		)
+		)*/
 		.pipe(
 			$if(!isProduction, sourcemaps.write(path.sourcemaps))
 		)
