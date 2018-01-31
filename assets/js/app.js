@@ -13,6 +13,16 @@
 		// 	dots: true,
 		// 	infinite: false
 		// });
+
+		var $body = $('body'),
+		    scrollClass = "is-scroll",
+		    $menuButton = $('.toggle-menu-button'),
+		    menuShowClass = 'is-menu-show',
+		    menuClass = '.toggle-menu-button';
+
+		$menuButton.on('click', function () {
+			$body.toggleClass(menuShowClass);
+		});
 	});
 
 	$(window).load(function () {
